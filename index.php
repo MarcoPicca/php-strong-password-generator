@@ -4,6 +4,7 @@
 <?php
     include __DIR__ . "/./functions/functions.php";
 
+    session_start();
 
     $errorMessage = '';
     $generatedPassword = '';
@@ -15,6 +16,8 @@
             $passLen = (int)$_GET['pass-number'];
             $generatedPassword = getPassword($passLen);
             
+            $_SESSION['generatedPassword'] = $generatedPassword;
+            header("Location: password.php");
         }
     }
     
@@ -36,6 +39,5 @@
         </form>
 
         <?php echo $errorMessage; ?>
-        <?php echo "La tua Password è: $generatedPassword"; ?>
     </body>
 </html>
