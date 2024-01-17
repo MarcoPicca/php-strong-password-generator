@@ -1,22 +1,12 @@
 
 
+
 <?php
+    include __DIR__ . "/./functions/functions.php";
+
+
     $errorMessage = '';
     $generatedPassword = '';
-
-    
-    function getPassword ($length) {
-        $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+';
-        $pass = '';
-        $charactersLen = strlen($characters); 
-        
-        for ($i = 0; $i < $length; $i++) {
-            $pass .= $characters[rand(0, $charactersLen - 1)];
-        }
-        return $pass;
-    }
-
-    
 
     if (isset($_GET['pass-number'])) {
         if (empty($_GET['pass-number'])) {
@@ -27,6 +17,7 @@
             
         }
     }
+    
 ?>
 
 
